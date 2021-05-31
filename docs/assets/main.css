@@ -2,10 +2,16 @@ html {
     background-color: whitesmoke;
     color: black;
 }
+.is-dark {
+    display: none;
+}
 @media (prefers-color-scheme: dark) {
     html {
       background-color: black;
       color: whitesmoke;
+    }
+    .is-dark {
+        display: flex;
     }
 }
 body {
@@ -90,4 +96,35 @@ body {
     border-color: lightseagreen;
     color: whitesmoke;
     padding-left: 8px;
+}
+.piano {
+    position: relative;
+}
+.white-note {
+    background-color: white;
+    color: black;
+    height: 128px;
+    width: 40px;
+}
+.black-note {
+    background-color: black;
+    color: white;
+    position: absolute;
+    height: 80px;
+    width: 28px;
+}
+.left-1 {
+    left: 26px;
+}
+.left-2 {
+    left: 66px;
+}
+.left-4 {
+    left: 146px;
+}
+.left-5 {
+    left: 186px;
+}
+.left-6 {
+    left: 226px;
 }

@@ -11,7 +11,8 @@
     <body class="flex-col a-center">
         <div class="container">
             <div class="spacer-h-mid"></div>
-            <p class="title">音感トレーニング！</p>
+            <p class="title">音感トレーニング</p>
+            <p class="is-dark">ダークモード表示中</p>
             <div class="spacer-h-large"></div>
             <div class="flex-row flex-wrap">
                 <div class="controls flex-col margin-r-small">
@@ -35,8 +36,20 @@
                     <textarea readonly id="console" rows="10" cols="30">答えはここに出ます。</textarea>
                 </div>
             </div>
-            <div class="piano">
-
+            <div class="flex-row piano margin-t-mid">
+                <button class="white-note" onclick="playNote(0)"></button>
+                <button class="black-note left-1" onclick="playNote(1)"></button>
+                <button class="white-note" onclick="playNote(2)"></button>
+                <button class="black-note left-2" onclick="playNote(3)"></button>
+                <button class="white-note" onclick="playNote(4)"></button>
+                <button class="white-note" onclick="playNote(5)"></button>
+                <button class="black-note left-4" onclick="playNote(6)"></button>
+                <button class="white-note" onclick="playNote(7)"></button>
+                <button class="black-note left-5" onclick="playNote(8)"></button>
+                <button class="white-note" onclick="playNote(9)"></button>
+                <button class="black-note left-6" onclick="playNote(10)"></button>
+                <button class="white-note" onclick="playNote(11)"></button>
+                <button class="white-note" onclick="playNote(12)"></button>
             </div>
         </div>
     </body>

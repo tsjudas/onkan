@@ -119,3 +119,11 @@ function consoleOut(text) {
     if (consoleCnt++ % 5 == 0) document.querySelector('#console').value = "";
     document.querySelector('#console').value += text + "\n";
 }
+
+async function playNote(note) {
+    if (ctx.state === "suspended") {
+        ctx.resume();
+    }
+    const source = await createSource(note, 0, true);
+    source.start(0);
+}
