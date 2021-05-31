@@ -1,6 +1,7 @@
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 let isPlaying = false;
-const playingHz = 48;
+const baseNoteNm = 48;
+const audioNoteNm = 48;
 let zure = 0.3;
 let waitTime = 1500;
 let consoleCnt = 0;
@@ -23,16 +24,15 @@ const onkai = [
     'A#',
     'B',
 ];
-const onkai_q = [0,2,4,5,7,9,11];
+const onkai_q = [0,2,4,5,7,9,11]; // white key only
 
 gainNode.gain.value = 0.2;
 
 function initAudio() {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
         const xhr = new XMLHttpRequest();
         xhr.responseType = "arraybuffer";
         xhr.open("GET", "assets/c4.wav", true);
-        let audioBuf;
         xhr.onload = async () => {
             resolve(await ctx.decodeAudioData(xhr.response));
         }
@@ -42,9 +42,7 @@ function initAudio() {
 
 async function sleep(milliSec) {
     return new Promise(resolve => {
-        setTimeout(() => {
-            resolve();
-        }, milliSec);
+        setTimeout(() => resolve(), milliSec);
     });
 }
 
@@ -52,9 +50,9 @@ async function createSource(note, zure, isdown) {
     const source = ctx.createBufferSource();
     source.buffer = await initAudio();
     if (isdown) {
-        source.playbackRate.value = 2 ** ((playingHz + note - zure - 48) / 12);
+        source.playbackRate.value = 2 ** ((baseNoteNm + note - zure - audioNoteNm) / 12);
     } else {
-        source.playbackRate.value = 2 ** ((playingHz + note + zure - 48) / 12);
+        source.playbackRate.value = 2 ** ((baseNoteNm + note + zure - audioNoteNm) / 12);
     }
     source.connect(gainNode);
     gainNode.connect(ctx.destination);
@@ -62,14 +60,14 @@ async function createSource(note, zure, isdown) {
 }
 
 async function init(reset) {
-    if (isPlaying) playStop();
+    playStop();
     sources = [];
     if(reset) {
         randData = [];
     }
     const zureIndex = Math.floor(Math.random() * 3);
     for (let i = 0; i < 3; i++) {
-        let rand = reset ? {
+        const rand = reset ? {
             zureFlg: zureIndex === i,
             isdown: Math.floor(Math.random() * 100) == 1,
             note: onkai_q[Math.floor(Math.random() * onkai_q.length)],
@@ -109,14 +107,12 @@ function answer() {
 
 function zureChange(value) {
     zure = Number(value);
-    document.querySelector('#zuretext').value = zure;
-    document.querySelector('#zure').value = zure;
+    document.querySelector('#zuretext').value = document.querySelector('#zure').value = zure;
 }
 
 function waitChange(value) {
     waitTime = Number(value);
-    document.querySelector('#waittext').value = waitTime;
-    document.querySelector('#wait').value = waitTime;
+    document.querySelector('#waittext').value = document.querySelector('#wait').value = waitTime;
 }
 
 function consoleOut(text) {
