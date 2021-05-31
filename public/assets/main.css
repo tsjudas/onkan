@@ -1,0 +1,93 @@
+html {
+    background-color: whitesmoke;
+    color: black;
+}
+@media (prefers-color-scheme: dark) {
+    html {
+      background-color: black;
+      color: whitesmoke;
+    }
+}
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+.container {
+    width:   98%;
+}
+.width-100 {
+    width:   100%;
+}
+.flex-row {
+    display: flex;
+}
+.flex-col {
+    display: flex;
+    flex-flow: column;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.a-center {
+    align-items: center;
+}
+.j-center {
+    justify-content: center;
+}
+.j-around {
+    justify-content: space-around;
+}
+.j-between {
+    justify-content: space-between;
+}
+.btn-mid {
+    width: 96px;
+    height: 32px;
+    font-size: 16px;
+    font-family: inherit;
+    background-color:antiquewhite;
+    border-color: peru;
+    color: darkred;
+}
+.margin-l-small {
+    margin-left: 8px;
+}
+.margin-r-small {
+    margin-right: 8px;
+}
+.margin-t-small {
+    margin-top: 8px;
+}
+.margin-b-small {
+    margin-bottom: 8px;
+}
+.margin-t-mid {
+    margin-top: 16px;
+}
+.margin-b-mid {
+    margin-bottom: 16px;
+}
+.spacer-h-small {
+    height: 8px;
+}
+.spacer-h-mid {
+    height: 16px;
+}
+.spacer-h-large {
+    height: 32px;
+}
+.spacer-h-huge {
+    height: 48px;
+}
+.title {
+    font-weight: bold;
+    font-size: 32px;
+    margin: 0;
+}
+#console {
+    font-size: 18px;
+    font-family: inherit;
+    background-color:lightslategrey;
+    border-color: lightseagreen;
+    color: whitesmoke;
+    padding-left: 8px;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>音感トレーニング</title>
+        <meta charset="utf-8"/>
+        <script type="text/javascript" src="assets/main.js" defer></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="assets/main.css">
+    </head>
+    <body class="flex-col a-center">
+        <div class="container">
+            <div class="spacer-h-mid"></div>
+            <p class="title">音感トレーニング！</p>
+            <div class="spacer-h-large"></div>
+            <div class="flex-row flex-wrap">
+                <div class="controls flex-col margin-r-small">
+                    <div class="flex-row flex-wrap width-100 j-between">
+                        <button id="init" class="btn-mid margin-r-small margin-b-small" onclick="init(true)">次！</button>
+                        <button id="replay" class="btn-mid margin-r-small margin-b-small" onclick="init(false)">リプレイ</button>
+                        <button id="answer" class="btn-mid margin-b-small" onclick="answer()">答え</button>
+                    </div>
+                    <div class="flex-row flex-wrap margin-t-mid margin-b-mid width-100 j-between">
+                        <label>ウェイト</label>
+                        <input id="wait" type="range" min="500" max="4000" step="100" value="1500" onchange="waitChange(this.value)">
+                        <input id="waittext" type="number" min="500" max="4000" step="100" value="1500" onchange="waitChange(this.value)">
+                    </div>
+                    <div class="flex-row flex-wrap margin-t-mid margin-b-mid width-100 j-between">
+                        <label>音程のずれ</label>
+                        <input id="zure" type="range" min="0" max="0.3" step="0.01" value="0.3" onchange="zureChange(this.value)">
+                        <input id="zuretext" type="number" min="0" max="0.3" step="0.01" value="0.3" onchange="zureChange(this.value)">
+                    </div>
+                </div>
+                <div class="consoleArea margin-l-small">
+                    <textarea readonly id="console" rows="10" cols="30">答えはここに出ます。</textarea>
+                </div>
+            </div>
+            <div class="piano">
+
+            </div>
+        </div>
+    </body>
+</html>
